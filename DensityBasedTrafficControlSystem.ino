@@ -1,7 +1,7 @@
 #include <Servo.h>
 
-int ExPin[4] = {46, 47, 48, 49};
-int EnPin[4] = {50, 51, 52, 53};
+int EnPin[4] = {46, 47, 48, 49};
+int ExPin[4] = {50, 51, 52, 53};
 int ServoPin[4] = {2, 3, 4, 5};
 int En[4] = {0, 0, 0, 0};
 int Ex[4] = {0, 0, 0, 0};
@@ -27,17 +27,21 @@ void setup() {
 
 void loop()
 {
+  // delay(2000);
   
   for (int i = 0; i < 4; i++) { 
     En[i] = digitalRead(EnPin[i]);
     Ex[i] = digitalRead(ExPin[i]);
-    Serial.print(i);
-    Serial.print("En :");
-    Serial.println(En[i]);
-
-    Serial.print(i);
-    Serial.print("Ex :");
-    Serial.println(Ex[i]);
+  //   Serial.print(i);
+  //   Serial.print("En :");
+  //   Serial.print(En[i]);
+  // Serial.println();
+  //   Serial.print(i);
+  //   Serial.print("Ex :");
+  //   Serial.print(Ex[i]);
+  //   Serial.println();
+  //   Serial.println();
+  
   }
 
   TrafficState();
@@ -49,12 +53,12 @@ void loop()
 
 void open(int i)
 {
-  servo[i].write(90);
+  servo[i].write(0);
 }
 
 void close(int i)
 {
-  servo[i].write(180);
+  servo[i].write(95);
 }
 
 
@@ -85,12 +89,15 @@ void TrafficState()
       ExSTATE[i]=1;
     }
 
-  Serial.print(i);
-  Serial.print("EnSTATE :");
-  Serial.println(EnSTATE[i]);
-  Serial.print(i);
-  Serial.print("ExSTATE :");
-  Serial.println(ExSTATE[i]);
+  // Serial.print(i);
+  // Serial.print("EnSTATE :");
+  // Serial.print(EnSTATE[i]);
+  // Serial.println();
+  // Serial.print(i);
+  // Serial.print("ExSTATE :");
+  // Serial.print(ExSTATE[i]);
+  // Serial.println();
+  // Serial.println();
 
    Num[i] = EnTOGGLE[i] - ExTOGGLE[i];
 
